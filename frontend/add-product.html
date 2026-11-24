@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HarvestHub - Add Product</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/harvesthub-logo.png" alt="HarvestHub Logo">
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="products.html" id="navProducts" style="display:none;">Products</a>
+      <a href="cart.html" id="navCart" style="display:none;">Cart</a>
+      <a href="orders.html" id="navOrders" style="display:none;">My Orders</a>
+      <a href="farmer-dashboard.html" id="navDashboard" style="display:none;">Dashboard</a>
+      <a href="add-product.html" id="navAddProduct" style="display:none;" class="active">Add Product</a>
+      <a href="manage-products.html" id="navManage" style="display:none;">Manage Products</a>
+      <span id="navUser" style="color:#a5d6a7;"></span>
+      <a href="#" id="navLogout" style="display:none;" onclick="logout(); return false;">Logout</a>
+    </div>
+  </nav>
+
+  <div class="form-card wide">
+    <h2>Add a New Product</h2>
+    <div id="message" class="message"></div>
+    <form id="productForm">
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" id="productName" placeholder="e.g. Tomato, Rice, Mango">
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category">
+          <option value="">-- Select category --</option>
+          <option value="Vegetable">Vegetable</option>
+          <option value="Fruit">Fruit</option>
+          <option value="Grain">Grain</option>
+        </select>
+      </div>
+      <div style="display:flex; gap:16px;">
+        <div class="form-group" style="flex:1;">
+          <label for="price">Price (per kg, in &#8377;)</label>
+          <input type="number" id="price" step="0.01" placeholder="e.g. 40.00">
+        </div>
+        <div class="form-group" style="flex:1;">
+          <label for="quantity">Quantity (in kg)</label>
+          <input type="number" id="quantity" placeholder="e.g. 100">
+        </div>
+      </div>
+      <div class="form-group">
+  <label for="description">Description</label>
+  <textarea id="description" placeholder="Describe your product..."></textarea>
+</div>
+
+<button type="button"
+        onclick="generateAI()"
+        style="display:block;
+               width:100%;
+               margin:20px 0;
+               padding:14px;
+               background:#2e7d32;
+               color:white;
+               border:none;
+               border-radius:8px;
+               font-size:16px;
+               font-weight:bold;
+               cursor:pointer;">
+  ✨ Generate with AI
+</button>
+
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Add Product</button>
+        <a href="manage-products.html" class="btn btn-outline" style="border-color:var(--primary);color:var(--primary-dark);">Cancel</a>
+      </div>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <p>HarvestHub &copy; - 2026</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+async function generateAI() {
+
+    const name = document.getElementById("productName").value.trim();
+    const category = document.getElementById("category").value;
+    const description = document.getElementById("description");
+
+    if (!name) {
+        alert("Please enter the product name first.");
+        return;
+    }
+
+    if (!category) {
+        alert("Please select a category first.");
+        return;
+    }
+
+    // Generate description using Gemini AI
+    try {
+
+        description.value = "Generating description with AI...";
+
+        const response = await fetch(
+            "http://localhost:8080/api/ai-description",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    productName: name,
+                    category: category
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.success) {
+
+            description.value = data.description;
+
+        } else {
+
+            description.value = "";
+
+            alert(
+                data.message ||
+                "Unable to generate description."
+            );
+
+            console.log(
+                "Gemini Description Error:",
+                data
+            );
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Gemini Description Error:",
+            error
+        );
+
+        description.value = "";
+
+        alert(
+            "Unable to connect to Gemini AI."
+        );
+    }
+}
+</script>

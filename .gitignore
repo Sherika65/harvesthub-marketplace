@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+build/
+target/
+bin/
+*.class
+*.jar
+*.log
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HarvestHub - Manage Products</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/harvesthub-logo.png" alt="HarvestHub Logo">
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="products.html" id="navProducts" style="display:none;">Products</a>
+      <a href="cart.html" id="navCart" style="display:none;">Cart</a>
+      <a href="orders.html" id="navOrders" style="display:none;">My Orders</a>
+      <a href="farmer-dashboard.html" id="navDashboard" style="display:none;">Dashboard</a>
+      <a href="add-product.html" id="navAddProduct" style="display:none;">Add Product</a>
+      <a href="manage-products.html" id="navManage" style="display:none;" class="active">Manage Products</a>
+      <span id="navUser" style="color:#a5d6a7;"></span>
+      <a href="#" id="navLogout" style="display:none;" onclick="logout(); return false;">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2 class="section-title">Manage Your Products</h2>
+    <div style="margin-bottom:16px;">
+      <a href="add-product.html" class="btn btn-primary">Add New Product</a>
+    </div>
+    <div id="manageBox">
+      <p>Loading products...</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>HarvestHub &copy; 2026 </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

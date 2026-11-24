@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HarvestHub - Shopping Cart</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/harvesthub-logo.png" alt="HarvestHub Logo">
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="products.html" id="navProducts" style="display:none;">Products</a>
+      <a href="cart.html" id="navCart" style="display:none;" class="active">Cart</a>
+      <a href="orders.html" id="navOrders" style="display:none;">My Orders</a>
+      <a href="farmer-dashboard.html" id="navDashboard" style="display:none;">Dashboard</a>
+      <a href="add-product.html" id="navAddProduct" style="display:none;">Add Product</a>
+      <a href="manage-products.html" id="navManage" style="display:none;">Manage Products</a>
+      <span id="navUser" style="color:#a5d6a7;"></span>
+      <a href="#" id="navLogout" style="display:none;" onclick="logout(); return false;">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2 class="section-title">Your Shopping Cart</h2>
+    <div id="cartBox">
+      <p>Loading cart...</p>
+    </div>
+    
+    <div id="cartTotal" class="cart-total"></div>
+
+<div class="checkout-card">
+
+  <div class="checkout-header">
+    <div class="checkout-icon">🚚</div>
+    <div>
+      <h3>Delivery Details</h3>
+      <p>Enter your details to receive your order</p>
+    </div>
+    <div class="checkout-card">
+
+  <div class="checkout-header">
+    <div class="checkout-icon">💳</div>
+    <div>
+      <h3>Payment Method</h3>
+      <p>Choose how you want to pay</p>
+    </div>
+  </div>
+
+  <div class="payment-options">
+
+    <label class="payment-option">
+      <input type="radio" name="paymentMethod" value="Cash on Delivery" checked>
+      <span>💵 Cash on Delivery</span>
+    </label>
+
+    <label class="payment-option">
+      <input type="radio" name="paymentMethod" value="UPI">
+      <span>📱 UPI (Demo)</span>
+    </label>
+
+    <label class="payment-option">
+      <input type="radio" name="paymentMethod" value="Card">
+      <span>💳 Card (Demo)</span>
+    </label>
+
+  </div>
+
+</div>
+  </div>
+
+  <div class="checkout-grid">
+
+  <div class="form-group">
+    <label for="customerName">Full Name</label>
+    <input
+      type="text"
+      id="customerName"
+      placeholder="Enter your full name">
+  </div>
+
+  <div class="form-group">
+    <label for="customerPhone">Phone Number</label>
+    <input
+      type="tel"
+      id="customerPhone"
+      placeholder="Enter your phone number">
+  </div>
+
+  <div class="form-group full-width">
+    <label for="deliveryAddress">Delivery Address</label>
+    <textarea
+      id="deliveryAddress"
+      rows="3"
+      placeholder="House No., Street, Area"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="deliveryCity">City</label>
+    <input
+      type="text"
+      id="deliveryCity"
+      placeholder="Enter your city">
+  </div>
+
+  <div class="form-group">
+    <label for="deliveryPincode">Pincode</label>
+    <input
+      type="text"
+      id="deliveryPincode"
+      placeholder="Enter pincode">
+  </div>
+
+</div>
+
+
+  </div>
+
+</div>
+
+
+<div style="text-align:right; margin-top:16px;">
+  <button class="btn btn-success" onclick="placeOrder()">Place Order</button>
+  <a href="products.html" class="btn btn-outline" style="border-color:var(--primary);color:var(--primary-dark);">Continue Shopping</a>
+</div>
+
+  <footer class="footer">
+    <p>HarvestHub &copy; 2026 </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

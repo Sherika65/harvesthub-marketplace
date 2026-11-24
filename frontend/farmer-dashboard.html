@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HarvestHub - Farmer Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/harvesthub-logo.png" alt="HarvestHub Logo">
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="products.html" id="navProducts" style="display:none;">Products</a>
+      <a href="cart.html" id="navCart" style="display:none;">Cart</a>
+      <a href="orders.html" id="navOrders" style="display:none;">My Orders</a>
+      <a href="farmer-dashboard.html" id="navDashboard" style="display:none;" class="active">Dashboard</a>
+      <a href="add-product.html" id="navAddProduct" style="display:none;">Add Product</a>
+      <a href="manage-products.html" id="navManage" style="display:none;">Manage Products</a>
+      <span id="navUser" style="color:#a5d6a7;"></span>
+      <a href="#" id="navLogout" style="display:none;" onclick="logout(); return false;">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="dashboard-header">
+      <h2>Welcome, <span id="farmerName">Farmer</span>!</h2>
+      <p>Manage your products and view orders from your dashboard.</p>
+    </div>
+
+    <div class="stat-cards">
+      <div class="stat-card">
+        <div class="num" id="productCount">0</div>
+        <div class="label">Products Listed</div>
+      </div>
+      <div class="stat-card">
+        <div class="num" id="orderCount">0</div>
+        <div class="label">Orders Received</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <a href="add-product.html" class="btn btn-primary">Add New Product</a>
+      <a href="manage-products.html" class="btn btn-outline" style="border-color:var(--primary);color:var(--primary-dark);">Manage Products</a>
+    </div>
+
+    <h2 class="section-title">Orders Received</h2>
+    <div id="farmerOrdersBox">
+      <p>Loading orders...</p>
+    </div>
+    <h2 class="section-title">Customer Reviews</h2>
+
+<div id="farmerReviewsBox">
+  <p>Loading reviews...</p>
+</div>
+  </div>
+
+  <footer class="footer">
+    <p>HarvestHub &copy; 2026</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
