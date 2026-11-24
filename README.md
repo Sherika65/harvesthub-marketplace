@@ -350,3 +350,22 @@ Replace `your_mysql_password` with your own local MySQL password.
 Set these variables in the terminal before running the backend.
 
 **Important:** Never upload your database password or other private credentials to GitHub.
+## 📸 Project Screenshots
+
+### Homepage
+![Homepage](screenshots/Harvesthub_homepage.JPG)
+
+### Products Page
+![Products](screenshots/Harvesthub_productpage.JPG)
+
+### Farmer Dashboard
+![Farmer Dashboard](screenshots/Harvesthub_farmerdashboard.JPG)
+
+### Manage Products
+![Manage Products](screenshots/Harvesthub_manageproduct.JPG)
+
+### Add Product
+![Add Product](screenshots/harvesthub_addproduct.JPG)
+
+### Customer Cart
+![Cart](screenshots/harvesthub_cart.JPG)
